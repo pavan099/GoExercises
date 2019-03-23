@@ -20,11 +20,20 @@ type Player struct {
 	GameID int
 }
 
-func main() {
-	p := &Player{
+// newPlayer initializations
+func newPlayer(ID, GameID int, Name, Location string) *Player {
+	return &Player{
 		User:   &User{ID: 1, Name: "Player1", Location: "India"},
 		GameID: 1234,
 	}
+}
+
+func main() {
+	// p := &Player{
+	// 	User:   &User{ID: 1, Name: "Player1", Location: "India"},
+	// 	GameID: 1234,
+	// }
+	p := newPlayer(1, 1234, "Player1", "India")
 
 	p.Greetings()
 }
