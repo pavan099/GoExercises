@@ -6,8 +6,8 @@ import (
 
 // User type
 type User struct {
-	ID              int
-	Name, Localtion string
+	ID             int
+	Name, Location string
 }
 
 // Player type with simple composition(embedding)
@@ -21,8 +21,8 @@ func main() {
 	p := Player{}
 	p.ID = 1
 	p.Name = "Player1"
-	p.Localtion = "LA"
+	p.Location = "LA"
 	p.GameID = 1234
 
-	fmt.Printf("%s is from %s", p.Name, p.Localtion)
+	fmt.Printf("%s is from %s", p.Name, p.Location)
 }
