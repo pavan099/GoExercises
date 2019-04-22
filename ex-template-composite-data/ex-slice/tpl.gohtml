@@ -10,6 +10,11 @@
     <li>{{.}}</li>
     {{end}}
 </ul>
-
+<span>----------------</span>
+<ul>
+    {{range $key, $val:=.}}
+    <li> {{$key}} - {{$val}} </li>
+    {{end}}
+</ul>
 </body>
 </html>
