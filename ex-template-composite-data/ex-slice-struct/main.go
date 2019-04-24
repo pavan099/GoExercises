@@ -23,8 +23,9 @@ func main() {
 	gandhi := sage{"Gandhi", "Be the change"}
 	mlk := sage{"Martin Luthar King", "Hatred never wins"}
 	jesus := sage{"Jesus", "Love is the only beautiful thing in the world!"}
+	muhammad := sage{"Muhammad", "Insah Allah!"}
 
-	sages := []sage{buddha, gandhi, mlk, jesus}
+	sages := []sage{buddha, gandhi, mlk, jesus, muhammad}
 
 	if err := tmpl.Execute(os.Stdout, sages); err != nil {
 		log.Fatalln(err)
