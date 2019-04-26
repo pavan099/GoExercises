@@ -6,9 +6,15 @@
 </head>
 <body>
 <ul>
-    {{range .}}
-        <li>{{.Name}} - {{.Motto}}</li>
+    {{range .S}}
+        <li>{{.Name}}</li>
     {{end}}
+</ul>
+------------
+<ul>
+{{range .W}}
+<li>{{.Title}}</li>
+{{end}}
 </ul>
 </body>
 </html>
