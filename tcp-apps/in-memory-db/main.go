@@ -32,7 +32,7 @@ func main() {
 
 }
 
-func handle(conn net.Conn) {
+func handle(conn io.ReadWriteCloser) {
 	defer func() {
 		err := conn.Close()
 		if err != nil {
@@ -40,11 +40,14 @@ func handle(conn net.Conn) {
 		}
 	}()
 
-	_, _ = io.WriteString(conn, "Welcome to the database\n")
-	_, _ = io.WriteString(conn,
-		"Use GET key \n"+
+	_, err := io.WriteString(conn,
+		"Welcome to the database\n"+
+			"Use GET key \n"+
 			"SET key value \n"+
 			"DEL key\n")
+	if err != nil {
+		log.Println("Not able to write to the connection")
+	}
 
 	scanner := bufio.NewScanner(conn)
 	data := make(map[string]string)
