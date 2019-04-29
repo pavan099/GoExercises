@@ -14,6 +14,6 @@ func (mh *myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.Handle("/", &myHandler{greet: "Hello"})
-	http.ListenAndServe(":8000", nil)
+	// http.Handle("/", &myHandler{greet: "Hello"})
+	http.ListenAndServe(":8000", &myHandler{"Hello"})
 }
