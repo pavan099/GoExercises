@@ -74,20 +74,20 @@ func respMux(conn io.ReadWriteCloser, s string) {
 		s +
 		`</strong></body></html>`
 
-	fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")
-	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
-	fmt.Fprint(conn, "Content-Type: text/html\r\n")
-	fmt.Fprint(conn, "\r\n")
-	fmt.Fprint(conn, body)
+	_, _ = fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")
+	_, _ = fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	_, _ = fmt.Fprint(conn, "Content-Type: text/html\r\n")
+	_, _ = fmt.Fprint(conn, "\r\n")
+	_, _ = fmt.Fprint(conn, body)
 }
 
 func respond(conn io.ReadWriteCloser) {
 
 	body := `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title></head><body><strong>Hello World</strong></body></html>`
 
-	fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")
-	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
-	fmt.Fprint(conn, "Content-Type: text/html\r\n")
-	fmt.Fprint(conn, "\r\n")
-	fmt.Fprint(conn, body)
+	_, _ = fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")
+	_, _ = fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
+	_, _ = fmt.Fprint(conn, "Content-Type: text/html\r\n")
+	_, _ = fmt.Fprint(conn, "\r\n")
+	_, _ = fmt.Fprint(conn, body)
 }
