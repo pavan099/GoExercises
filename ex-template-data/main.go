@@ -13,7 +13,7 @@ func init() {
 }
 
 func main() {
-	var err error
+
 	//passing integer
 	//err := tmpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", 42)
 	//if err != nil {
@@ -21,7 +21,7 @@ func main() {
 	//}
 
 	// passing string data
-	err = tmpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", "Shaken but not stirred!")
+	err := tmpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", "Shaken but not stirred!")
 	if err != nil {
 		log.Fatalln(err)
 	}
