@@ -1,0 +1,9 @@
+HOST *
+    ServerAliveInterval 10
+Host *
+    IPQoS lowdelay throughput
+Host gitlab.apphub.ericsson.net
+    HostName gitlab.apphub.ericsson.net
+    User git
+    PORT 30022
+    IdentityFile ~/.ssh/id_ed25519
