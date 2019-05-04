@@ -23,13 +23,19 @@ func readCookies(writer http.ResponseWriter, request *http.Request) {
 	_, _ = fmt.Fprintln(writer, "The site visited:", c1.Value)
 }
 
-var visitedCount int
+func set(writer http.ResponseWriter, req *http.Request) {
 
-func set(writer http.ResponseWriter, _ *http.Request) {
-	visitedCount++
+	c1, err := req.Cookie("visited")
+	if err != nil {
+		http.SetCookie(writer, &http.Cookie{Name: "visited", Value: "1"})
+		_, _ = fmt.Println("Cookie not set yet.", err)
+		_, _ = fmt.Fprintln(writer, "Visitor cookie is set with value")
+		return
+	}
 
-	http.SetCookie(writer, &http.Cookie{Name: "visited", Value: strconv.Itoa(visitedCount)})
-
-	_, _ = fmt.Fprintln(writer, "Visitor cookie is set")
+	val, _ := strconv.Atoi(c1.Value)
+	c1.Value = strconv.Itoa(val + 1)
+	http.SetCookie(writer, c1)
+	_, _ = fmt.Fprintln(writer, "Visitor cookie value is", c1.Value)
 
 }
