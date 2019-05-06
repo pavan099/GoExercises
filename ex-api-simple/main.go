@@ -26,22 +26,22 @@ func GetPersonEndpoint(w http.ResponseWriter, r *http.Request) {
 	id := mux.Vars(r)["id"]
 	for _, item := range people {
 		if item.ID == id {
-			json.NewEncoder(w).Encode(item)
+			_ = json.NewEncoder(w).Encode(item)
 			return
 		}
 	}
-	json.NewEncoder(w).Encode(&Person{})
+	_ = json.NewEncoder(w).Encode(&Person{})
 }
 func GetPeopleEndpoint(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(people)
+	_ = json.NewEncoder(w).Encode(people)
 }
 func CreatePersonEndpoint(w http.ResponseWriter, r *http.Request) {
 	id := mux.Vars(r)["id"]
 	var person Person
-	json.NewDecoder(r.Body).Decode(&person)
+	_ = json.NewDecoder(r.Body).Decode(&person)
 	person.ID = id
 	people = append(people, person)
-	json.NewEncoder(w).Encode(person)
+	_ = json.NewEncoder(w).Encode(person)
 }
 func DeletePersonEndpoint(w http.ResponseWriter, r *http.Request) {
 	id := mux.Vars(r)["id"]
@@ -50,7 +50,7 @@ func DeletePersonEndpoint(w http.ResponseWriter, r *http.Request) {
 			people = append(people[:index], people[index+1:]...)
 			break
 		}
-		json.NewEncoder(w).Encode(people)
+		_ = json.NewEncoder(w).Encode(people)
 	}
 }
 
