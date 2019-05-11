@@ -45,7 +45,7 @@ func (u *UserController) GetUser(w http.ResponseWriter, r *http.Request, params 
 // UpdateUser ...
 func (u *UserController) UpdateUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	user := models.User{}
-	json.NewDecoder(r.Body).Decode(&user)
+	_ = json.NewDecoder(r.Body).Decode(&user)
 	users[user.Id] = user
 	err := json.NewEncoder(w).Encode(user)
 	if err != nil {
