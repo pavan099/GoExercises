@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -16,5 +17,6 @@ func main() {
 	router.POST("/user/create", usrController.CreateUser)
 	router.PUT("/user/update", usrController.UpdateUser)
 	router.DELETE("/user/delete/:id", usrController.DeleteUser)
+	fmt.Println("Server started at http://localhost:8080/")
 	log.Fatalln(http.ListenAndServe(":8080", router))
 }
